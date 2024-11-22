@@ -1,0 +1,14 @@
+@import '../utils/variables.scss';
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+form input {
+    width: 300px;
+}
