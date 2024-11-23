@@ -18,7 +18,6 @@ const ListaPokemon = () => {
       try {
         const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/`);
         setPokemonList(resp.data.results)
-        console.log(resp.data.results)
       } catch (err) {
         console.log(err)
       }
@@ -26,15 +25,7 @@ const ListaPokemon = () => {
     getPokemons();
   }, []);
 
-  
-
-  // Cuando a lista de pokemon se haya cargado, renderizar cards
-  // useEffect(() => {
-  //   renderCards()
-  // }, [pokemonList]);
-
   return <>
-    <p>Lista Pokemon</p>
     <section className="pokemon-list">{renderCards()}</section>
   </>;
 };

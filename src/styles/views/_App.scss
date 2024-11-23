@@ -3,12 +3,13 @@
 * {
     padding: 0px;
     margin: 0px;
+    font-family: "Pixelify Sans", sans-serif;
 }
 
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: 110%;
-    background-color: $grey; 
+    background-color: $grey;
 }
 
 a {
@@ -18,10 +19,17 @@ a {
 
 button {
     padding: 10px 18px;
-    border: 1px solid $primary-color;
+    border: 0px solid;
     border-radius: 8px;
     color: $white;
-    background-color:$secondary-color;
+    background-color:$primary-color;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: $secondary-color;
+    padding: 12px 20px;
 }
 
 input {

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Header from './components/Header';
 import Main from './components/Main'
 import { pokeContext } from './context/pokeContext'
 
@@ -9,26 +10,16 @@ import { pokeContext } from './context/pokeContext'
 function App() {
 
   // Dudas porque aquí o es 1 o es otra
-  const [pokemon, setPokemon] = useState({
-    nombre: ""
-  })
+  const [pokemons, setPokemons] = useState([]);
 
-  const updatePokemon = (newUser) => {
-    const { nombre } = newUser;
-    setPokemon({
-      nombre: nombre
-    })
+  const updatePokemons = (newPokemon) => {
+    setPokemons([...pokemons, newPokemon])
   };
-
-  // Creamos un contexto en el padre para que sea el PROVEEDOR
-  const pokeData = {
-    pokemon, // Objeto
-    updatePokemon, // Función
-  }
 
   return (
     <>
-      <pokeContext.Provider value={{ pokeData }}>
+    <Header/>
+      <pokeContext.Provider value={{ pokemons, updatePokemons }}>
         <Main />
       </pokeContext.Provider >
     </>
