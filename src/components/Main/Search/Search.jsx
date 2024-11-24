@@ -1,12 +1,10 @@
 import React from "react";
 import { useContext, useState, useEffect } from "react";
 import { pokeContext } from "../../../context/pokeContext";
-import axios from "axios";
 
 const Search = () => {
   const { updatePokemons } = useContext(pokeContext); // Consume el Context
 
-  const [pokemonSearch, setPokemonSearch] = useState([]); // id o nombre
   const [values, setValue] = useState("");
 
   const handleChange = (e) => {
@@ -15,7 +13,7 @@ const Search = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setPokemonSearch(values);
+    // Enviamos la búsqueda al estado "pokemons" del contexto a través de la función del contexto para que se sume a ese array
     updatePokemons(values);
     setValue("");
   }

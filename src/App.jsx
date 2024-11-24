@@ -9,7 +9,6 @@ import { pokeContext } from './context/pokeContext'
 
 function App() {
 
-  // Dudas porque aquí o es 1 o es otra
   const [pokemons, setPokemons] = useState([]);
 
   const updatePokemons = (newPokemon) => {
@@ -19,7 +18,7 @@ function App() {
   return (
     <>
     <Header/>
-      <pokeContext.Provider value={{ pokemons, updatePokemons }}>
+      <pokeContext.Provider value={{ pokemons, updatePokemons}}>
         <Main />
       </pokeContext.Provider >
     </>
