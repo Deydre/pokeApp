@@ -19,7 +19,7 @@ const Search = () => {
   }
 
   return <div>
-    <form onSubmit={handleSubmit}>
+    <form id= "searchOne" onSubmit={handleSubmit}>
       <input type="text" name="nombre" value={values} onChange={handleChange} required/>
       <button type="submit" id="round-btn">🔍</button>
     </form>
