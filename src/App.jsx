@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import Header from './components/Header';
 import Main from './components/Main'
-import { pokeContext } from './context/pokeContext'
+import { pokeContext } from './context/pokeContext';
+import { BrowserRouter } from 'react-router-dom';
 
 // El padre crea un contexto y actúa como el proveedor de datos.
 // Los hijos consumen ese contexto para acceder o modificar los datos compartidos.
@@ -15,12 +16,20 @@ function App() {
     setPokemons([...pokemons, newPokemon])
   };
 
+  const [pokemonsCreated, setPokemonsCreated] = useState([]);
+
+  const updatePokemonsCreated = (newPokemon) => {
+    setPokemonsCreated([...pokemonsCreated, newPokemon])
+  };
+
   return (
     <>
-    <Header/>
-      <pokeContext.Provider value={{ pokemons, updatePokemons}}>
-        <Main />
-      </pokeContext.Provider >
+      <BrowserRouter >
+        <Header />
+        <pokeContext.Provider value={{ pokemons, updatePokemons, pokemonsCreated, updatePokemonsCreated }}>
+          <Main />
+        </pokeContext.Provider >
+      </BrowserRouter>
     </>
   )
 }

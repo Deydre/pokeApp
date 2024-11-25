@@ -1,14 +1,14 @@
 @import '../utils/variables.scss';
 @import '../utils/mixins.scss';
 
-.card {
+.card-detail {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     text-align: center;
     padding-bottom: 20px;
+    padding: 0px 20px;;
 
-    width: 180px;
     border-radius: 8px;
     background-color: $white;
     @include shadow($shadow-color);
@@ -16,24 +16,35 @@
     transition: width 0.5s ease, transform 0.5s ease;
 }
 
-.card:hover{
-    width: 190px;
-    transform: scale(1.15);
+.card-detail img {
+    height: 220px;
 }
 
-img {
-    height: 120px;
-}
-
-.card div {
+.card-detail > div {
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 4px;
 }
 
-.card h5 {
+.card-detail h5 {
     font-weight: 500;
     font-size: 18px;
     width: 100%;
     color: $grey;
     text-align: left;
-    padding: 10px 0px 0px 30px;
+    margin-bottom: 2px;
+}
+
+.card-detail h3 {
+    font-size: 26px;
+}
+
+#stats > div {
+    margin-bottom: 12px;
+}
+
+.card-detail p {
+    color: $dark-grey;
 }

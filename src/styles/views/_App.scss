@@ -1,4 +1,5 @@
 @import '../utils/variables.scss';
+@import '../utils/mixins.scss';
 
 * {
     padding: 0px;
@@ -34,6 +35,22 @@ button:hover {
 }
 
 input {
-    padding: 10px;
-    border-radius: 8px;
+    padding: 10px 20px;
+    border-radius: 80px;
+    border: 0px solid;
+    @include shadow($shadow-color);
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 40px;
+}
+
+form input {
+    width: 180px;
 }

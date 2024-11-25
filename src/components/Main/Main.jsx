@@ -1,11 +1,16 @@
 import React from "react";
-import Search from './Search';
-import ListaPokemon from './ListaPokemon';
+import Home from './Home/Home';
+import NewPokemonForm from "./NewPokemonForm/NewPokemonForm";
+import Details from "./Details/Details";
+import { Route, Routes, Navigate } from 'react-router-dom'
 
 const Main = () => {
   return <>
-    <Search />
-    <ListaPokemon />
+    <Routes>
+      <Route path='/' element={ <Home />} />
+      <Route path='/new' element={ <NewPokemonForm/>} />
+      <Route path='/pokemon/:id' element={<Details/>}/>
+    </Routes>
   </>;
 };
 

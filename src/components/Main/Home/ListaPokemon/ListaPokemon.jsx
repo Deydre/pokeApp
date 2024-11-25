@@ -1,27 +1,28 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { pokeContext } from "../../../context/pokeContext";
+import { pokeContext } from "../../../../context/pokeContext";
 import Card from './Card';
 import axios from "axios";
+import { ColorRing } from 'react-loader-spinner';
 import { v4 as uuidv4 } from 'uuid';
 
 const ListaPokemon = () => {
   const { pokemons } = useContext(pokeContext); // Consume el Context
   const [pokemonList, setPokemonList] = useState([]);
-  const [pokemonSearched, setPokemonSearched] = useState(null);
+  const [pokemonSearched, setPokemonSearched] = useState([]);
 
   const renderCards = () => {
     return pokemonList.map((pokemon, i) => <Card data={pokemon} key={uuidv4()} />)
   }
 
   const renderSearchedCard = () => {
-    return pokemonSearched ? <Card data={pokemonSearched} key={uuidv4()} /> : "";
+    return pokemonSearched ? pokemonSearched.map(pokemon => <Card data={pokemon} key={uuidv4()} />) : "";
   }
 
   // FETCH INICIAL
   useEffect(() => {
     const getPokemons = async () => {
       try {
-        const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/`);
+        const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=251`);
         setPokemonList(resp.data.results)
       } catch (err) {
         console.log(err)
@@ -38,7 +39,8 @@ const ListaPokemon = () => {
         if (pokemons.length > 0) {
           const pokemonToSearch = pokemons[pokemons.length - 1];
           const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonToSearch}`);
-          setPokemonSearched(resp.data);
+          setPokemonSearched([...pokemonSearched, resp.data]);
+          console.log(resp)
         }
       } catch (err) {
         console.log(err)
@@ -50,7 +52,7 @@ const ListaPokemon = () => {
 
   return <>
     <section className="pokemon-list">
-      {pokemonSearched ? renderSearchedCard() : renderCards()}
+      {pokemonSearched.length > 0 ? renderSearchedCard() : renderCards()}
     </section>
 
   </>;

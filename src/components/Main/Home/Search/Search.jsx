@@ -1,6 +1,6 @@
 import React from "react";
-import { useContext, useState, useEffect } from "react";
-import { pokeContext } from "../../../context/pokeContext";
+import { useContext, useState } from "react";
+import { pokeContext } from "../../../../context/pokeContext";
 
 const Search = () => {
   const { updatePokemons } = useContext(pokeContext); // Consume el Context
@@ -20,8 +20,8 @@ const Search = () => {
 
   return <div>
     <form onSubmit={handleSubmit}>
-      <input type="text" name="nombre" value={values} onChange={handleChange} />
-      <button type="submit">🔍</button>
+      <input type="text" name="nombre" value={values} onChange={handleChange} required/>
+      <button type="submit" id="round-btn">🔍</button>
     </form>
   </div>;
 };
