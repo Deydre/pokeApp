@@ -38,8 +38,9 @@ const NewPokemonForm = () => {
   }
 
   return <><section>
-    <h2>¡Crea tu propio Pokémon!</h2>
+   
     <form onSubmit={handleSubmit}>
+    <h2>¡Crea tu propio Pokémon!</h2>
       <input type="text" name="id" onChange={handleChange} placeholder="ID" />
       <input type="text" name="nombre" onChange={handleChange} placeholder="Nombre" />
       <input type="text" name="img_url" onChange={handleChange} placeholder="URL de la imagen" />

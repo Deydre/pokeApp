@@ -10,6 +10,7 @@ const Main = () => {
       <Route path='/' element={ <Home />} />
       <Route path='/new' element={ <NewPokemonForm/>} />
       <Route path='/pokemon/:id' element={<Details/>}/>
+      <Route path='/*' element={<Home/>}/>
     </Routes>
   </>;
 };
